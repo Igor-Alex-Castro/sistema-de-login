@@ -20,6 +20,7 @@
         */
         include_once('config.php');
         $name = $_POST['nome'];
+        $senha = $_POST['senha'];
         $email = $_POST['email'];
         $telefone = $_POST['telefone'];
         $genero = $_POST['genero'];
@@ -28,9 +29,10 @@
         $estado = $_POST['estado'];
         $endereco = $_POST['endereco'];
 
-        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome, email, telefone, sexo, data_nasce, cidade, estado, endereco)
-        VALUES ('$name', '$email', '$telefone', '$genero', '$data_nascimento', '$cidade', '$estado', '$endereco')");
-    }
+        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome, email, telefone, sexo, data_nasce, cidade, estado, endereco, senha)
+        VALUES ('$name', '$email', '$telefone', '$genero', '$data_nascimento', '$cidade', '$estado', '$endereco', $senha)");
+        header('Location: login.php');
+}
 
 ?>
 
